@@ -1,0 +1,110 @@
+VentanaPrincipal:
+<VentanaPrincipal>:
+    id: principal
+    eti1:eti1
+    barra:barra
+    orientation:"vertical"
+    MDBoxLayout:
+        canvas.before:
+            Color:
+                rgba: (.5,0,.5,1)
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        size_hint:(1,.1)
+        padding:10
+        MDLabel:
+            text:"Versio List Converter"
+            color:"white"
+            font_size:20
+            font_style: "H6"
+        AnchorLayout:
+            anchor_x:"right"
+            MDBoxLayout:
+                spacing: 5
+                adaptive_size: True
+                MDRoundFlatIconButton:
+                    icon: "folder"
+                    text: "Elegir archivo"
+                    text_color: 1, 1, 1, .9
+                    icon_color: 1, 1, 1, .9
+                    line_color: 1, 1, 1, .5
+                    #on_release: print(root.a)
+                    on_press: root.seleccionar_archivo()
+
+
+                MDRoundFlatIconButton:
+                    icon:"account-question"
+                    text: "Acerca de"
+                    text_color: 1, 1, 1, .9
+                    icon_color: 1, 1, 1, .9
+                    line_color: 1, 1, 1, .5
+                    #on_release: print(root.a)
+                    on_release: root.show_acerca_de()
+    MDBoxLayout:
+        adaptive_size: True
+        size_hint:(1,.9)
+        orientation:"vertical"
+        canvas.before:
+            Color:
+                rgba: (0,0,0,.9)
+            Rectangle:
+                size:self.size
+
+        MDRectangleFlatIconButton:
+            icon: "application"
+            text: "Limpiar"
+            theme_icon_color:"Custom"
+            theme_text_color: "Custom"
+            line_color: 0,0,0,0
+            icon_color: "#ffffff"
+            text_color: 1,1,1,1
+            pos_hint: {"right": 1, "center_y": .5}
+            on_release:root.limpiar()
+
+        AnchorLayout:
+            BoxLayout:
+                orientation:"vertical"
+                size_hint: (.8,.1)
+
+                MDLabel:
+                    id:eti1
+                    text: root.etiqueta
+                    font_style: "Subtitle1"
+                    halign: "center"
+                    color:"white"
+                    #pos_hint: {"center_x": .5, "center_y": .5}
+                    #size_hint: (.1,.1)
+                ProgressBar:
+                    id: barra
+                    max:100
+                    min:0
+                    size_hint: (.4,1)
+                    pos_hint: {"center_x": .5, "y": .5}
+
+
+
+<Acerca_de>:
+    orientation:"vertical"
+    MDBoxLayout:
+        orientation:"vertical"
+        Label:
+            text:root.texto_etiqueta
+            color:(1,1,1,1)
+    MDBoxLayout:
+        orientation:"vertical"
+        size_hint:(1,.2)
+        Label:
+            text: "Copyrigth 2022-Todos los derechos reservados"
+            color:(1,1,1,1)
+            font_size:11
+        Label:
+            text: "Clic fuera del recuadro para cerrar"
+            color:(1,1,1,1)
+            font_size:9
+
+
+
+
+
+
